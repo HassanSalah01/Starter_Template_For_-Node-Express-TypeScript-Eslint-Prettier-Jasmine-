@@ -1,12 +1,36 @@
-import express ,{Request,Response,Express}from "express";
-import path from "path";
-const app :Express= express();
+//End Point Testing......
 
-app.use(express.static(path.join(__dirname,"../public")));
-app.get('/',(req:Request,res:Response)=>{
-    console.log(__dirname)
-    res.sendFile(path.resolve(__dirname,"../public/index.html"));
-})
+import supertest from 'supertest';
+import app from '../index';
+const request = supertest(app);
 
 
-app.listen(3000,()=>{console.log("server is running on port 3000")})
+describe('Test endpoint responses', () => {
+    it('gets the api endpoint', async () => {
+        const response = await request.get('/');
+        expect(response.status).toBe(200);     
+    }
+)})
+
+describe('Test endpoint responses', () => {
+    it('gets the api endpoint', async () => {
+        const response = await request.get('/');
+        expect(response.status).toBe(400);     
+    }
+)})
+
+
+// import app from '../index'
+// import supertest from 'supertest'
+
+// const request = supertest(app);
+
+// describe("End Point Testing",()=>{
+//     it("Return 200 For The /",async (done)=>{
+//         const response = await request.get("/");
+//         expect(response.status).toBe(200);
+        
+
+//     })
+// })
+
