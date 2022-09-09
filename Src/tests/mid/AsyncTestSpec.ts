@@ -1,4 +1,5 @@
-import {getData} from "../../mid/testing"
+//Async Testing ......
+import {getData} from "../../mid/AsyncTest"
 
 describe("An Async Function test",()=>{
     it("should return The UserId",async()=>{
@@ -6,6 +7,3 @@ describe("An Async Function test",()=>{
         expect(data).toEqual(1);
     })
 })
-
-
-
